@@ -69,7 +69,7 @@ module "ec2_instance" {
   subnet_id              = module.vpc.public_subnets[0]
   associate_public_ip_address = true
   user_data              = file("Jenkins-install.sh")
-  availability_zone      = data.aws_availability_zones.azs.names
+  availability_zone      = var.availability_zone
 
   tags = {
     Name = "Jenkins-server"
