@@ -12,3 +12,8 @@ variable "instance_type" {
     description = "Instance type"
     type        = string
 }
+
+variable "availability_zone" {
+    type = string
+    description = "The availability zone where the instance will be deployed"
+}
