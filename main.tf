@@ -51,7 +51,7 @@ module "sg" {
     }
   ]
 
-  tags {
+  tags = {
     Name = "Jenkins-sg"
   }
 }
