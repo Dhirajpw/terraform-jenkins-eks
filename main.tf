@@ -42,7 +42,7 @@ module "sg" {
     }
   ]
 
-  egress_with_cidr_blocks [
+  egress_with_cidr_blocks = [
     {
       from_port   = 0 
       to_port     = 0
