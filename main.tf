@@ -57,3 +57,23 @@ module "sg" {
 }
 
  # EC2
+module "ec2_instance" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+
+  name = "Jenkins-server"
+
+  instance_type          = var.instance_type
+  key_name               = "dw-tokyo-key"
+  monitoring             = true
+  vpc_security_group_ids = [module.sg.this_security_griup_id]
+  subnet_id              = module.vpc.public_subnets[0]
+  associate_public_ip_address = true
+  user_data              = file("Jenkins-install.sh")
+  availability_zone      = data.aws_availability_zones.azs.names
+
+  tags = {
+    Name = "Jenkins-server"
+    Terraform   = "true"
+    Environment = "dev"
+  }
+}
