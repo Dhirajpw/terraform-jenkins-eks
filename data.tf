@@ -4,7 +4,7 @@ data "aws_ami" "example" {
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-kernel-*-x86_64-gp2"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-*-*-amd64-server-*"]
   }
 
   filter {
