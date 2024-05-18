@@ -69,7 +69,7 @@ module "ec2_instance" {
   vpc_security_group_ids = [module.sg.security_group_id]
   subnet_id              = module.vpc.public_subnets[0]
   associate_public_ip_address = true
-  user_data              = file("Jenkins-install.sh")
+  user_data              = file("jenkins-installation-ubuntu.sh")
   availability_zone      = var.availability_zone
 
   tags = {
